@@ -32,7 +32,7 @@ export async function loginAction(formData: FormData) {
     .eq('user_id', authData.user.id)
     .single();
 
-  const role = (roleRecord as { role?: string } | null)?.role;
+  const role = roleRecord?.role;
 
   if (role === 'admin') redirect('/admin/dashboard');
   if (role === 'school') redirect('/school-admin/dashboard');
